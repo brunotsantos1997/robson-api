@@ -1,9 +1,10 @@
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
 class Objective:
-    id: int
+    id: Optional[int]
     user_id: int
     name: str
     initial_date: str
@@ -14,7 +15,7 @@ class Objective:
 
 
 @dataclass
-class Users:
-    user_id: int
+class User:
+    user_id: Optional[int]
     name: str
     email: str
