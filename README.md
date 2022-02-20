@@ -20,7 +20,6 @@ Conteúdo
 1. [Oportunidade de Mercado](#oportunidade-de-mercado)
 1. [Nossa Solução](#nossa-solução)
 1. [Autores](#autores)
-1. [License](#license)
 
 ---
 
