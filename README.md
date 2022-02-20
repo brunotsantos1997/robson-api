@@ -63,20 +63,20 @@ e oferecer para novos usuarios com o mesmo perfil do grupo.
 > ####  [GET] => <tt> /user/<string:user_id> </tt>
 > > *Pega usuarios no banco de dados*
 
-> ####  <tt> [GET] => /user/<string:user_id>/allocation </tt>
+> ####  [GET] => <tt> /user/<string:user_id>/allocation </tt>
 > > *Pega alocação de investimentos do usuario*
 
-> ####  <tt> [GET] => /user/<string:user_id>/recommended_allocation </tt>
+> ####  [GET] => <tt> /user/<string:user_id>/recommended_allocation </tt>
 > > *Pega alocação recomendado de investimentos seguindo o perfil do usuario*
 
 #### Objetivos
 
-> ####  <tt> [POST] => /objective/create </tt>
+> ####  [POST] => <tt> /objective/create </tt>
 > > *Cria um novo objetivo*
 
 #### Inteligencia artificial
 
-> ####  <tt> [GET] => /ai/cluster/ </tt>
+> ####  [GET] => <tt> /ai/cluster/ </tt>
 > > *Lista usuarios separados em clusters de acordo com suas transaçoes PIX.
 > Confira [Clusterização](#clusterização) para mais detalhes*
 
