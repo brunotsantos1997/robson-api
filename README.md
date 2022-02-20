@@ -95,6 +95,69 @@ Com o CNPJ em mãos acessamos uma API publica para capturar as descriçoes dos C
 e usamos para cruazer e criar grupos com consumo parecido.
 Assim podendo propor um objetivo que seja comum ao grupo.
 
+Fizemos um exemplo com um pequeno grupo de usuarios inseridos manualmente no código, ness case foi possivel
+separar os usuarios em dois grupos, um com consumo parecido e outro com consumo diferente. Com uma base de dados maior
+seria possivel a analise inteligente de todos os usuarios, relacionando com os investimentos e objetivos.
+
+- Entrada:
+```python
+UserTransactions(
+    "JOAO", # ID do Usuário
+    0.1, # Suitability (Perfil de investidor)
+    [
+                  # Valor, Descrição do CNAE, Data da transação
+        Transaction(100, "Educação infantil creche", "2022-01-01"),
+        Transaction(50, "Fabricação outros brinquedos jogos recreativos especificados anteriormente",
+                    "2022-01-02"),
+        Transaction(200, "camisa flamenngo", "2022-01-03"),
+        Transaction(20, "camisa flamego bebes", "2022-01-03"),
+        Transaction(200, "gasolina", "2022-01-03"),
+    ]
+),
+UserTransactions(
+    "MARIA",
+    0.1,
+    [
+        Transaction(12, "Educação infantil pré-escola", "2022-01-01"),
+        Transaction(80, "Comércio varejista brinquedos artigos recreativos", "2022-01-02"),
+        Transaction(30, "brinquedos bebes", "2022-01-05"),
+        Transaction(30, "leite", "2022-01-08"),
+        Transaction(50, "comida", "2022-01-010"),
+    ]
+),
+UserTransactions(
+    "ROBSON",
+    0.1,
+    [
+        Transaction(60, "comida", "2022-01-01"),
+        Transaction(300, "Aluguel aparelhos jogos eletrônicos", "2022-01-02"),
+        Transaction(500, "skin fortnite", "2022-01-05"),
+        Transaction(300, "controle xbola", "2022-01-08"),
+        Transaction(50, "comida", "2022-01-010"),
+    ]
+),
+UserTransactions(
+    "RODRIGO",
+    0.26,
+    [
+        Transaction(60, "comida", "2022-01-01"),
+        Transaction(40, "Exploração jogos eletrônicos recreativos", "2022-01-02"),
+        Transaction(500, "camisa botafogo", "2022-01-05"),
+        Transaction(300, "controle xbola", "2022-01-08"),
+        Transaction(50, "nerd", "2022-01-010"),
+    ]
+),
+```
+- Resposta da API:
+```json
+{
+    "JOAO": 0,
+    "MARIA": 0,
+    "ROBSON": 1,
+    "RODRIGO": 1
+}
+```
+
 ### Tecnologias Implementadas    
 
 - Python
