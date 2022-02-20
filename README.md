@@ -111,9 +111,9 @@ Assim podendo propor um objetivo que seja comum ao grupo.
 
 * [Lucas Martins](https://github.com/lucaomartins/)
 * [Bruno Teixeira](https://github.com/brunotsantos1997)
-* []()
-* []()
-* []()
+* [Christian Rojas](https://www.linkedin.com/in/christianr1/)
+* [Giovanni Postiglione](https://www.linkedin.com/in/giovannisaboya/)
+* [Gisele SPrata](https://www.linkedin.com/in/gisprata/)
 
  
 ---
