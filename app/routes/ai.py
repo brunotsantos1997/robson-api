@@ -1,6 +1,7 @@
 import json
 
 from flask import Response
+from sklearn.feature_extraction.text import CountVectorizer
 
 from app.ai.transactions import generate_clusters
 from app.app import app
@@ -96,3 +97,33 @@ def mock_user_transactions_list():
         ),
     ]
     return result
+
+
+def create_group():
+    users = clusterize_users().json
+    groups = {}
+    for k, v in users.items():
+        if v not in groups:
+            groups[v] = []
+        groups[v].append(k)
+    return groups
+
+
+def get_interests():
+    transactions = mock_user_transactions_list()
+    groups = create_group()
+    user_groups = {}
+    for k in groups.keys():
+        user_groups[k] = [filter(lambda x: x.user_id in groups[k], transactions)]
+
+    list_of_transactions = []
+    for k, v in user_groups.items():
+        for i, user_transactions in enumerate(transactions):
+            transactions = ''
+            for transaction in user_transactions.transactions:
+                transactions += ' ' + transaction.description
+
+        list_of_transactions.append(transactions)
+
+    vec = CountVectorizer()
+    df = vec.fit_transform(list_of_transactions).toarray()
