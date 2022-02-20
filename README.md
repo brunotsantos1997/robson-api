@@ -2,11 +2,12 @@
 
 <p align="center">
   <a href="" rel="noopener">
- <img src="" alt="Project logo"></a>
+ <img src="https://user-images.githubusercontent.com/51249341/154859797-03a7881e-fab7-47e3-a99a-144ff165b363.png" alt="Project logo"></a>
 </p>
+
+
+
 <h3 align="center">Bem vindo ao Robson API!</h3>
-
-
    
 
 ---
@@ -47,17 +48,19 @@ Através da agregação de contas, nosso algoritmo conseguirá realizar sugestõ
 
 Assim qualquer pessoa conseguirá ter uma melhor segurança na sua gestão dos seus investimentos.
 
-# Nossa Solução
+## Nossa Solução
 
 Usamos a inteligencia artificial para segregar os usuarios em grupos, para podermos oferecer investimentos  objetivos e comum entre eles
 e oferecer para novos usuarios com o mesmo perfil do grupo.
 
-## Sistemática da API
+### Arquitetura
 
-### End Points de nossa api
+![Arquitetura](./img/architecture.png)
+
+### End Points
 #### Usuario
 
-> ####  <tt> [GET] => /user/<string:user_id> </tt>
+> ####  [GET] => <tt> /user/<string:user_id> </tt>
 > > *Pega usuarios no banco de dados*
 
 > ####  <tt> [GET] => /user/<string:user_id>/allocation </tt>
@@ -77,7 +80,7 @@ e oferecer para novos usuarios com o mesmo perfil do grupo.
 > > *Lista usuarios separados em clusters de acordo com suas transaçoes PIX.
 > Confira [Clusterização](#clusterização) para mais detalhes*
 
-## Clusterização
+### Clusterização
 
 A clusterização é um metodo de classificação de dados que separar e categorizar em grupos.
 Usamos a clusterização para segregar os usuarios em grupos permitindo criar previsoes de seus objetivos de vida,
@@ -91,10 +94,6 @@ porém assumimos que com open finance esse dado estaria disponivel com a devida 
 Com o CNPJ em mãos acessamos uma API publica para capturar as descriçoes dos CNAE e os CNAES secundarios
 e usamos para cruazer e criar grupos com consumo parecido.
 Assim podendo propor um objetivo que seja comum ao grupo.
-
-### The Architecture
-
-![image info](./img/architecture.png)
 
 ### Tecnologias Implementadas    
 
@@ -114,10 +113,3 @@ Assim podendo propor um objetivo que seja comum ao grupo.
 * [Christian Rojas](https://www.linkedin.com/in/christianr1/)
 * [Giovanni Postiglione](https://www.linkedin.com/in/giovannisaboya/)
 * [Gisele SPrata](https://www.linkedin.com/in/gisprata/)
-
- 
----
-
-## License
-
-Code and documentation are available according to the Commons Clause Version 1 (see [LICENSE](https://commonsclause.com/)).
