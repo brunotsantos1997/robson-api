@@ -10,6 +10,7 @@ app.secret_key = 'development key'
 
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+VERSION = os.getenv('VERSION', '0.0.1')
 
 
 if __name__ == '__main__':

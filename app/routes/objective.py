@@ -60,6 +60,7 @@ def update_objective():
     except:
         return Response(status=400)
 
+
 @app.route("/objective/predict/<int:user_id>")
 def objective_predict(user_id):
     cnpj_result = requests.get(CNPJ_API + '16501555000157')

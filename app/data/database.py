@@ -14,7 +14,7 @@ def create_tables():
         cursor = db.cursor()
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (
-                                    id integer primary key,
+                                    user_id text primary key,
                                     name text,
                                     email text
                                   )'''
@@ -22,14 +22,14 @@ def create_tables():
 
         cursor.execute('''CREATE TABLE IF NOT EXISTS objectives (
                                     id integer primary key,
-                                    user_id integer, 
+                                    user_id text, 
                                     name text, 
                                     initial_date text,
                                     final_date text,
                                     initial_investment text, 
                                     recurring_investment text, 
                                     goal_value text,
-                                    foreign KEY(user_id) REFERENCES users(id)
+                                    foreign KEY(user_id) REFERENCES users(user_id)
                                   )'''
                        )
 
@@ -77,7 +77,7 @@ def add_user(users: User):
     with app.app_context():
         db = get_db()
         cursor = db.cursor()
-        command = f"""INSERT INTO users VALUES (null, '{users.name}', '{users.email}')"""
+        command = f"""INSERT INTO users VALUES ('{users.user_id}', '{users.name}', '{users.email}')"""
 
         cursor.execute(command)
         db.commit()
@@ -103,7 +103,7 @@ def get_user(user_id):
     with app.app_context():
         db = get_db()
         cursor = db.cursor()
-        command = f"""SELECT * FROM users WHERE id = '{user_id}'"""
+        command = f"""SELECT * FROM users WHERE user_id = '{user_id}'"""
         cursor.execute(command)
         user = cursor.fetchone()
         db.close()
@@ -116,7 +116,7 @@ def delete_user(user_id):
     with app.app_context():
         db = get_db()
         cursor = db.cursor()
-        command = f"""DELETE FROM users WHERE id = '{user_id}'"""
+        command = f"""DELETE FROM users WHERE user_id = '{user_id}'"""
         cursor.execute(command)
         db.commit()
         db.close()
