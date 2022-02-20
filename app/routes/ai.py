@@ -1,6 +1,7 @@
 import json
 
 from flask import Response
+from sklearn.feature_extraction.text import CountVectorizer
 
 from app.ai.transactions import generate_clusters
 from app.app import app
@@ -12,6 +13,48 @@ from app.xp_api import get_user_pix_transactions, get_user_data, get_suitability
 
 @app.route("/ai/cluster/")
 def clusterize_users():
+    content = get_user_cluster()
+    return Response(status=200, response=json.dumps(content), mimetype='application/json')
+
+
+@app.route("/ai/cluster/interests")
+def get_interests():
+    transactions = mock_user_transactions_list()
+    groups = create_group()
+    user_groups = {}
+    for k in groups.keys():
+        user_groups[k] = list(filter(lambda x: x.user_id in groups[k], transactions))
+
+    group_interest = {}
+    for k, groups in user_groups.items():
+        list_of_transactions = []
+        for i, user_transactions in enumerate(groups):
+            transactions = ''
+            for transaction in user_transactions.transactions:
+                transactions += ' ' + transaction.description
+
+            list_of_transactions.append(transactions)
+
+        vec = CountVectorizer()
+        df = vec.fit_transform([' '.join(list_of_transactions)]).toarray()
+        names = vec.get_feature_names()
+        group_interest[k] = dict(zip(names, df[0]))
+
+    result = {}
+    # convert int32 to int
+    for k, v in group_interest.items():
+        for k2, v2 in v.items():
+            v[k2] = int(v2)
+
+    for k, v in group_interest.items():
+        result[k] = {
+            'interests': v,
+        }
+
+    return Response(status=200, response=json.dumps(result), mimetype='application/json')
+
+
+def get_user_cluster():
     # user_transactions_list = get_all_user_transactions()
     # using mock data because cnpj is not available in XP's openbanking api, but it could be used to get cnpj's cnaes
     user_transactions_list = mock_user_transactions_list()
@@ -19,7 +62,7 @@ def clusterize_users():
     clusters = generate_clusters(user_transactions_list, 2)
     for i, user_transactions in enumerate(user_transactions_list):
         content[user_transactions.user_id] = int(clusters[i])
-    return Response(status=200, response=json.dumps(content), mimetype='application/json')
+    return content
 
 
 def get_all_user_transactions():
@@ -56,7 +99,7 @@ def mock_user_transactions_list():
                 Transaction(100, "Educação infantil creche", "2022-01-01"),
                 Transaction(50, "Fabricação outros brinquedos jogos recreativos especificados anteriormente",
                             "2022-01-02"),
-                Transaction(200, "camisa flamenngo", "2022-01-03"),
+                Transaction(200, "camisa flamengo", "2022-01-03"),
                 Transaction(20, "camisa flamego bebes", "2022-01-03"),
                 Transaction(200, "gasolina", "2022-01-03"),
             ]
@@ -96,3 +139,13 @@ def mock_user_transactions_list():
         ),
     ]
     return result
+
+
+def create_group():
+    users = get_user_cluster()
+    groups = {}
+    for k, v in users.items():
+        if v not in groups:
+            groups[v] = []
+        groups[v].append(k)
+    return groups
