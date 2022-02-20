@@ -158,7 +158,7 @@ UserTransactions(
 }
 ```
 
-### Tecnologias Implementadas    
+### Tecnologias Utilizadas    
 
 - Python
 - Flask
