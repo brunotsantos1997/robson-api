@@ -1,7 +1,7 @@
 # Robson API : o seu Banker Digital
 
 <p align="center">
-    <a href="/">
+    <a href="#">
         <img src="https://user-images.githubusercontent.com/51249341/154859797-03a7881e-fab7-47e3-a99a-144ff165b363.png" alt="Project logo">
     </a>
 </p>
