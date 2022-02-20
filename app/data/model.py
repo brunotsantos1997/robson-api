@@ -43,3 +43,17 @@ class Investment:
     profitability: Optional[float]
     risk: int
     acquisitionDate: str
+
+
+@dataclass
+class Transaction:
+    amount: float
+    description: str
+    date: str
+    cnae: int
+
+
+@dataclass
+class UserTransactions:
+    user_id: str
+    transactions: list[Transaction]

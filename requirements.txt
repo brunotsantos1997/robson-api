@@ -5,8 +5,14 @@ Flask==2.0.3
 idna==3.3
 itsdangerous==2.1.0
 Jinja2==3.0.3
+joblib==1.1.0
 MarkupSafe==2.1.0
+numpy==1.22.2
 python-dotenv==0.19.2
 requests==2.27.1
+scikit-learn==1.0.2
+scipy==1.8.0
+sklearn==0.0
+threadpoolctl==3.1.0
 urllib3==1.26.8
 Werkzeug==2.0.3
