@@ -60,24 +60,57 @@ e oferecer para novos usuarios com o mesmo perfil do grupo.
 #### Usuario
 
 > ####  [GET] => <tt> /user/<string:user_id> </tt>
-> > *Pega usuarios no banco de dados*
+> *Pega usuarios no banco de dados*
 
 > ####  [GET] => <tt> /user/<string:user_id>/allocation </tt>
-> > *Pega alocação de investimentos do usuario*
+> *Pega alocação de investimentos do usuario.*
+> 
+> Exemplo:
+>```json
+>{
+>    "categories": {
+>        "unknown": {
+>            "percentage": 0.0,
+>            "amount": 0
+>        },
+>        "variable_income": {
+>            "percentage": 5.86,
+>            "amount": 1651
+>        },
+>        "post_fixed": {
+>            "percentage": 56.48,
+>            "amount": 15914
+>        },
+>        "multi_market": {
+>            "percentage": 1.17,
+>            "amount": 331
+>        },
+>        "global": {
+>            "percentage": 0.0,
+>            "amount": 0
+>        },
+>        "inflation": {
+>            "percentage": 36.49,
+>            "amount": 10282
+>        }
+>    },
+>    "total": 28178.0
+>}
+>```
 
 > ####  [GET] => <tt> /user/<string:user_id>/recommended_allocation </tt>
-> > *Pega alocação recomendado de investimentos seguindo o perfil do usuario*
+> *Pega alocação recomendado de investimentos seguindo o perfil do usuario.*
 
 #### Objetivos
 
 > ####  [POST] => <tt> /objective/create </tt>
-> > *Cria um novo objetivo*
+> *Cria um novo objetivo.*
 
 #### Inteligencia artificial
 
 > ####  [GET] => <tt> /ai/cluster/ </tt>
-> > *Lista usuarios separados em clusters de acordo com suas transaçoes PIX.
-> Confira [Clusterização](#clusterização) para mais detalhes*
+> *Lista usuarios separados em clusters de acordo com suas transaçoes PIX.*
+> > Confira [Clusterização](#clusterização) para mais detalhes.
 
 ### Clusterização
 
