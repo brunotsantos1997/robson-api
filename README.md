@@ -67,7 +67,7 @@ comum entre eles e oferecer para novos usuarios com o mesmo perfil do grupo.
 
 ![Arquitetura](./img/architecture.png)
 
-### End Points
+### Endpoints
 
 #### Usuario
 
