@@ -50,7 +50,6 @@ class Transaction:
     amount: float
     description: str
     date: str
-    cnae: int
 
 
 @dataclass

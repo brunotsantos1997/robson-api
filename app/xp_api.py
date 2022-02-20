@@ -64,6 +64,16 @@ def map_investment(investment, investment_type):
     )
 
 
+def get_user_pix_transactions(user_id):
+    user_data = get_user_data(user_id)
+    cpf = user_data['cpf']
+    pixHistory = []
+    for bank in user_data['banks']:
+        pixHistory.extend(bank['pixHistory'])
+
+    return filter(lambda x: x['from']['cpf'] == cpf, pixHistory)
+
+
 def get_user_data(user_id):
     headers = {
         'Authorization': 'Bearer {}'.format(get_xp_token()),

@@ -112,6 +112,17 @@ def get_user(user_id):
         return User(user[0], user[1], user[2])
 
 
+def get_all_users():
+    with app.app_context():
+        db = get_db()
+        cursor = db.cursor()
+        command = f"""SELECT * FROM users"""
+        cursor.execute(command)
+        users = cursor.fetchall()
+        db.close()
+        return map(lambda user: User(user[0], user[1], user[2]), users)
+
+
 def delete_user(user_id):
     with app.app_context():
         db = get_db()
