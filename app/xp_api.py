@@ -22,6 +22,10 @@ def get_consolidated_investments(user_id):
 
 def get_suitability_score(user_id):
     user_data = get_user_data(user_id)
+    return get_suitability_score_from_user_data(user_data)
+
+
+def get_suitability_score_from_user_data(user_data):
     suitabilities = []
     for bank in user_data['banks']:
         suitabilities.append(bank['suitability'])
@@ -65,6 +69,11 @@ def map_investment(investment, investment_type):
 
 
 def get_user_pix_transactions(user_id):
+    user_data = get_user_data(user_id)
+    return get_pix_transactions_from_user_data(user_data)
+
+
+def get_pix_transactions_from_user_data(user_id):
     user_data = get_user_data(user_id)
     cpf = user_data['cpf']
     pixHistory = []

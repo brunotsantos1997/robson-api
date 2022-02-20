@@ -17,7 +17,11 @@ def generate_clusters(users_transactions_list: List[UserTransactions], k):
         list_of_transactions.append(transactions)
 
     vec = CountVectorizer()
-    df = np.array(vec.fit_transform(list_of_transactions).toarray())
+    df = vec.fit_transform(list_of_transactions).toarray()
+
+    suitabilities = list(map(lambda x: x.suitability, users_transactions_list))
+    df = np.concatenate((df, np.array(suitabilities).reshape(-1, 1)), axis=1)
+
     kmeans = KMeans(n_clusters=k, init='k-means++', max_iter=300, n_init=10)
     kmeans.fit(df)
     y_pred = kmeans.predict(df)

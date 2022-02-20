@@ -55,4 +55,5 @@ class Transaction:
 @dataclass
 class UserTransactions:
     user_id: str
+    suitability: float
     transactions: list[Transaction]
