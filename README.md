@@ -49,19 +49,19 @@ Segundo o último Raio X do Investidor Brasileiro 2021, realizado pela ANBIMA, d
 
 ## Oportunidade de Mercado
 
-Acreditamos que o Open Finance permitirá uma redemocratização no acesso a serviços financeiros de qualidade, pelo qual
-decidimos criar o Robson.
+Acreditamos que o Open Finance permitirá uma redemocratização no acesso a serviços financeiros de qualidade, pelo qual decidimos criar o Robson.
 
 Através da agregação de contas, nosso algoritmo conseguirá realizar sugestões de investimento mais aderentes ao perfil
 do investidor, replicando o trabalho que um consultor de valores mobiliários faria com a carteira de pessoas de alta
 renda.
 
-Assim qualquer pessoa conseguirá ter uma melhor segurança na sua gestão dos seus investimentos.
+Assim qualquer pessoa conseguirá ter uma melhor segurança na gestão dos seus investimentos.
+
 
 ## Nossa Solução
 
-Usamos a inteligencia artificial para segregar os usuarios em grupos, para podermos oferecer investimentos objetivos e
-comum entre eles e oferecer para novos usuarios com o mesmo perfil do grupo.
+Usamos a inteligência artificial para segregar os usuários em grupos, para podermos oferecer investimentos objetivos e
+comum entre eles e oferecer para novos usuários com o mesmo perfil do grupo.
 
 ### Arquitetura
 
@@ -126,19 +126,19 @@ comum entre eles e oferecer para novos usuarios com o mesmo perfil do grupo.
 
 ### Clusterização
 
-A clusterização é um metodo de classificação de dados que separar e categorizar em grupos. Usamos a clusterização para
-segregar os usuarios em grupos permitindo criar previsoes de seus objetivos de vida, assim podendo oferece-lo sugestoes
-de investimentos personalizadas de acordo com o momento atual de sua vida.
+A clusterização é um método de classificação de dados que separa e categoriza em grupos. Usamos a clusterização para
+segregar os usuários em grupos permitindo criar previsões de seus objetivos de vida, assim podendo oferecê-lo sugestões
+de investimentos personalizados de acordo com o momento atual de sua vida.
 
-Pegamos os CNPJ de cada transação feita pelo usuario, usando o historico de pix provido pela api da xp. A api da XP nos
-devolve apenas CPF, porém assumimos que com open finance esse dado estaria disponivel com a devida permisão do usuario.
+Pegamos os CNPJ de cada transação feita pelo usuário, usando o histórico de pix provido pela api da xp. A api da XP nos
+devolve apenas CPF, porém assumimos que com Open Finance esse dado estaria disponível com a devida permissão do usuário.
 
-Com o CNPJ em mãos acessamos uma API publica para capturar as descriçoes dos CNAE e os CNAES secundarios e usamos para
-cruazer e criar grupos com consumo parecido. Assim podendo propor um objetivo que seja comum ao grupo.
+Com o CNPJ em mãos acessamos uma API pública para capturar as descrições dos CNAE e os CNAES secundários e usamos para
+cruza e cria grupos com consumo parecido. Assim podendo propor um objetivo que seja comum ao grupo.
 
-Fizemos um exemplo com um pequeno grupo de usuarios inseridos manualmente no código, ness case foi possivel separar os
-usuarios em dois grupos, um com consumo parecido e outro com consumo diferente. Com uma base de dados maior seria
-possivel a analise inteligente de todos os usuarios, relacionando com os investimentos e objetivos.
+Fizemos um exemplo com um pequeno grupo de usuários inseridos manualmente no código, nesse caso foi possível separar os
+usuários em dois grupos, um com consumo parecido e outro com consumo diferente. Com uma base de dados maior seria
+possível a análise inteligente de todos os usuários, relacionando com os investimentos e objetivos.
 
 - Entrada:
 
