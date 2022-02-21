@@ -25,7 +25,7 @@ Conteúdo
 
 ## Introdução
 
-O Robson é um app desenvolvido para o Hackathon XP - Open Finance com o objetivo de fornecer consultorias de
+O Robson é um app conceituado para o Hackathon XP - Open Finance com o objetivo de fornecer consultorias de
 investimento personalizadas a qualquer investidor, através do uso de inteligência artificial aplicada à carteira
 consolidada do cliente via open finance.
 
