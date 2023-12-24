@@ -214,7 +214,7 @@ UserTransactions(
 
 ## Autores
 
-* [Lucas Martins](https://github.com/lucaomartins/)
+* [Luísa Martins](https://github.com/lomartins/)
 * [Bruno Teixeira](https://github.com/brunotsantos1997)
 * [Christian Rojas](https://www.linkedin.com/in/christianr1/)
 * [Giovanni Postiglione](https://www.linkedin.com/in/giovannisaboya/)
